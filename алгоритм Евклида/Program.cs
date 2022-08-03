@@ -8,6 +8,15 @@ namespace алгоритм_Евклида
         {
             // таблица умножения
 
+            int n = 5;
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    Console.WriteLine($"{i} * {j} = {i * j}");
+                }
+                Console.Write("\n");
+            }
         }
     }
 }
