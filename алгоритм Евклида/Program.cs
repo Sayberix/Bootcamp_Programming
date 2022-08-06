@@ -13,6 +13,13 @@ namespace алгоритм_Евклида
             */
             Console.WriteLine("Введите кол-во элементов массива:");
             int n = Convert.ToInt32(Console.ReadLine());
+            if (n == 0)
+            {
+                Console.WriteLine("Введеное число не должно быть равно нулю! Программа завершает работу!");
+                return;
+            }
+            else
+                n = Math.Abs(n); 
             Console.WriteLine("Введите k (отрицательное или положительное число):");
             int k = Convert.ToInt32(Console.ReadLine());
             // Заполнение массива
