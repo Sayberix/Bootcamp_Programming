@@ -2,13 +2,13 @@
 
 namespace алгоритм_Евклида
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             /*
-            Дана последовательность из N целых чисел и число K. 
-            Необходимо сдвинуть всю последовательность (сдвиг - циклический) на |K| элементов вправо, если K – положительное 
+            Дана последовательность из N целых чисел и число K.
+            Необходимо сдвинуть всю последовательность (сдвиг - циклический) на |K| элементов вправо, если K – положительное
             и влево, если отрицательное.
             */
             Console.WriteLine("Введите кол-во элементов массива:");
@@ -18,10 +18,28 @@ namespace алгоритм_Евклида
             // Заполнение массива
             int[] array = new int[n];
             for (int i = 0; i < n; i++)
-            {
                 array[i] = new Random().Next(10);
-            }
-            
+            Console.WriteLine();
+            Console.WriteLine("Начальный массив: [" + string.Join(", ", array) + "]");
+            // Cдвиг
+            for (int j = 1; j <= Math.Abs(k); j++)
+                if (k >= 0)
+                    for (int i = n - 1; i > 0; i--)
+                    {
+                        int temp;
+                        temp = array[i - 1];
+                        array[i - 1] = array[i];
+                        array[i] = temp;
+                    }
+                else
+                    for (int i = 0; i < n - 1; i++)
+                    {
+                        int temp;
+                        temp = array[i + 1];
+                        array[i + 1] = array[i];
+                        array[i] = temp;
+                    }
+            Console.WriteLine("Конечный массив: [" + string.Join(", ", array) + "]");
         }
     }
 }
